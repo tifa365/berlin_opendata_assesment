@@ -145,4 +145,4 @@ The project uses two main files: one for the actual scoring system (`metadata_qu
 
 ## License
 
-This project is released under the [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/). You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+This project is licensed under the [MIT License](LICENSE), which permits use, copying, modification, distribution, and sublicensing, provided that the original copyright notice and permission notice are included.
