@@ -8,6 +8,8 @@ The Berlin Open Data Portal provides public datasets through a CKAN-based API. T
 
 This project is based on the Metadata Quality Assessment (MQA) methodology used by opendata.swiss, which itself was adapted from the data.europa.eu approach. As the source code for the official Swiss implementation has not been publicly released, our implementation is derived from public documentation of their methodology and scoring system. While we aim to mirror the Swiss methodology as closely as possible, this is not an official implementation nor is it endorsed by opendata.swiss or data.europa.eu.
 
+Important note: Due to fundamental differences in the implementation of data catalogs between Switzerland and Germany (including different metadata schemas, vocabularies, and field definitions), our results will necessarily differ from the Swiss implementation. The assessment scores should be considered approximations that may vary from the original methodology and should be used primarily as relative indicators of metadata quality rather than absolute measurements.
+
 Our implementation has been adapted to work with Berlin's DCAT-AP.de metadata schema while maintaining the same scoring principles. This adaptation includes mapping Berlin's specific metadata fields to the FAIR dimensions and ensuring compatibility with Berlin's controlled vocabularies, licenses, and resource formats. By applying this methodology to Berlin's Open Data Portal, we enable data providers to check the quality of their metadata and receive improvement suggestions based on established European standards.
 
 ## Features
@@ -22,13 +24,17 @@ Our implementation has been adapted to work with Berlin's DCAT-AP.de metadata sc
 
 ## How It Works
 
-1. **Data Retrieval**: The tool connects to the Berlin Open Data API (`https://datenregister.berlin.de/api/`) and fetches metadata in batches
+1. **Data Retrieval**: The tool (`run_metadata_assessment.py`) connects to the Berlin Open Data API (`https://datenregister.berlin.de/api/`) and fetches metadata in batches
 2. **Data Storage**: Metadata is automatically saved in the `data` directory in Parquet format with timestamps (e.g., `berlin_metadata_20250329.parquet`)
-3. **Processing**: The metadata is processed using the FAIR principles scoring system
-4. **Results Generation**: Results are saved to the `results` directory in various formats:
-   - CSV files with scores for all datasets
-   - Summary statistics and rating distributions
-   - Detailed JSON analysis of sample datasets
+3. **Processing**: The metadata is processed using the FAIR principles scoring system (`metadata_quality_assessment.py`), which:
+   - Evaluates each dataset across all five dimensions (Findability, Accessibility, Interoperability, Reusability, Context)
+   - Maps Berlin's metadata fields to the corresponding FAIR indicators
+   - Calculates dimensions scores and aggregates a total score
+   - Assigns a quality rating based on the total score
+4. **Results Generation**: Results are saved to the `results` directory in multiple formats:
+   - **CSV Files** (`mqa_scores.csv`): Contains scores for all datasets with their total points and dimension-specific scores
+   - **Rating Summary** (`ratings_summary.csv`): Shows distribution of quality ratings across all evaluated datasets
+   - **Detailed JSON Analysis** (`detailed_first_dataset.json`): Provides in-depth assessment of a sample dataset, showing each individual indicator's evaluation (pass/fail), points awarded, and specifics of why points were or weren't awarded. This detailed analysis is limited to sample datasets to keep file sizes manageable while still providing insights into how the scoring works
 
 ## Getting Started
 
