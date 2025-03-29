@@ -22,6 +22,18 @@ Our implementation has been adapted to work with Berlin's DCAT-AP.de metadata sc
 - CSV output with detailed quality scores
 - Detailed analysis for troubleshooting metadata issues
 
+## Future Plans
+
+A web-based metadata quality dashboard for Berlin Open Data is planned, inspired by the Swiss opendata.swiss dashboard (https://dashboard.opendata.swiss/). The planned dashboard will feature:
+
+- Overview of metadata quality across all Berlin Open Data organizations
+- Detailed breakdown of scores by dimension with visual indicators
+- Organization-specific views and comparisons
+- Recommendations for improving metadata quality
+- Regular updates reflecting the current state of Berlin's data catalog
+
+The dashboard will help data providers in Berlin improve their metadata quality and make their datasets more findable, accessible, interoperable, and reusable for the public.
+
 ## How It Works
 
 1. **Data Retrieval**: The tool (`run_metadata_assessment.py`) connects to the Berlin Open Data API (`https://datenregister.berlin.de/api/`) and fetches metadata in batches
