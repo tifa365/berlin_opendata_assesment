@@ -141,7 +141,13 @@ The total score (max 405 points) determines the final rating:
     - Processes datasets using the core implementation
     - Generates and saves results
 
-The project uses two main files: one for the actual scoring system (`metadata_quality_assessment.py`) and another for the command-line interface (`run_metadata_assessment.py`). This makes it easier to understand the code and allows each component to be used independently.
+The project is organized into two main Python files, each with a specific role:
+
+1. **`metadata_quality_assessment.py`**: Contains the core implementation of the scoring system - all evaluation logic, dimension calculations, and indicator definitions. This module is designed as a reusable library that can be imported into any Python application.
+
+2. **`run_metadata_assessment.py`**: Provides the command-line interface, handles data fetching, file operations, and result formatting. This script uses the core implementation to process datasets and generate reports.
+
+This separation allows the evaluation logic to be reused in different contexts (such as a web dashboard or API) while keeping the implementation details consistent.
 
 ## License
 
