@@ -10,9 +10,7 @@ ENV/
 .pytest_cache/
 
 # Data files (can be large)
-/data/*.csv
 /data/*.parquet
-/data/*.json
 
 # Result files (personal data)
 /results/*.csv

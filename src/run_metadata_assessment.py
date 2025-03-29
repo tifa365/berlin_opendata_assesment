@@ -92,14 +92,13 @@ def fetch_metadata(
         # Create directory if needed
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
         
-        # Save in both CSV and Parquet formats
-        data.to_csv(output_file, index=False)
-        if output_file.endswith('.csv'):
-            parquet_file = output_file.replace('.csv', '.parquet')
-            data.to_parquet(parquet_file, index=False)
-            print(f"Raw metadata saved to {output_file} and {parquet_file}")
-        else:
-            print(f"Raw metadata saved to {output_file}")
+        # Ensure the output file has .parquet extension
+        if not output_file.endswith('.parquet'):
+            output_file = output_file.replace('.csv', '.parquet') if output_file.endswith('.csv') else output_file + '.parquet'
+            
+        # Save in Parquet format
+        data.to_parquet(output_file, index=False)
+        print(f"Raw metadata saved to {output_file}")
     
     return data
 
@@ -218,7 +217,7 @@ def main():
     if args.fetch:
         # Fetch from API
         timestamp = datetime.now().strftime("%Y%m%d")
-        raw_data_path = os.path.join(args.data_dir, f"berlin_metadata_{timestamp}.csv")
+        raw_data_path = os.path.join(args.data_dir, f"berlin_metadata_{timestamp}.parquet")
         df = fetch_metadata(output_file=raw_data_path)
         
     elif args.input:
@@ -227,9 +226,10 @@ def main():
         df = load_data(args.input)
         
     else:
-        # Try to find existing data files
-        data_files = [f for f in os.listdir(args.data_dir) 
-                     if f.endswith('.csv') or f.endswith('.parquet')]
+        # Try to find existing data files (prioritize parquet files)
+        data_files = [f for f in os.listdir(args.data_dir) if f.endswith('.parquet')]
+        if not data_files:
+            data_files = [f for f in os.listdir(args.data_dir) if f.endswith('.csv')]
         
         if data_files:
             # Use the latest file by name or modification time

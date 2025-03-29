@@ -6,14 +6,29 @@ This project implements a metadata quality assessment framework for the Berlin O
 
 The Berlin Open Data Portal provides public datasets through a CKAN-based API. This tool evaluates the quality of the metadata provided with each dataset, generating scores across multiple dimensions and providing an overall quality rating.
 
+This implementation mirrors the Swiss approach (opendata.swiss) as closely as possible, following their Metadata Quality Assessment (MQA) methodology. The Swiss MQA approach itself was adapted from the data.europa.eu methodology, a tool designed to evaluate the quality of metadata collected by the European portal. 
+
+Our implementation has been carefully adapted to work with Berlin's DCAT-AP.de metadata schema while maintaining the same scoring principles used by the Swiss system. This adaptation includes mapping Berlin's specific metadata fields to the FAIR dimensions and ensuring compatibility with Berlin's controlled vocabularies, licenses, and resource formats. By applying this methodology to Berlin's Open Data Portal, we enable data providers to check the quality of their metadata and receive improvement suggestions based on established European standards.
+
 ## Features
 
 - Direct integration with Berlin's Open Data API
+- Automatic downloading and caching of metadata in Parquet format (optimized for efficient storage)
 - Comprehensive metadata quality assessment using FAIR principles
 - Scoring across five dimensions: Findability, Accessibility, Interoperability, Reusability, and Context
 - Support for Berlin's DCAT-AP.de metadata schema
 - CSV output with detailed quality scores
 - Detailed analysis for troubleshooting metadata issues
+
+## How It Works
+
+1. **Data Retrieval**: The tool connects to the Berlin Open Data API (`https://datenregister.berlin.de/api/`) and fetches metadata in batches
+2. **Data Storage**: Metadata is automatically saved in the `data` directory in Parquet format with timestamps (e.g., `berlin_metadata_20250329.parquet`)
+3. **Processing**: The metadata is processed using the FAIR principles scoring system
+4. **Results Generation**: Results are saved to the `results` directory in various formats:
+   - CSV files with scores for all datasets
+   - Summary statistics and rating distributions
+   - Detailed JSON analysis of sample datasets
 
 ## Getting Started
 
