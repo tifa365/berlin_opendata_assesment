@@ -1,0 +1,5 @@
+pandas
+requests
+tqdm
+python-dotenv
+pyarrow  # for parquet support

@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.pytest_cache/
+
+# Data files (can be large)
+/data/*.csv
+/data/*.parquet
+/data/*.json
+
+# Result files (personal data)
+/results/*.csv
+
+# System files
+.DS_Store
+.vscode/
+*.swp
+*~
+
+# HTML and other files
+*.html
