@@ -6,9 +6,9 @@ This project implements a metadata quality assessment framework for the Berlin O
 
 The Berlin Open Data Portal provides public datasets through a CKAN-based API. This tool evaluates the quality of the metadata provided with each dataset, generating scores across multiple dimensions and providing an overall quality rating.
 
-This implementation mirrors the Swiss approach (opendata.swiss) as closely as possible, following their Metadata Quality Assessment (MQA) methodology. The Swiss MQA approach itself was adapted from the data.europa.eu methodology, a tool designed to evaluate the quality of metadata collected by the European portal. 
+This project is based on the Metadata Quality Assessment (MQA) methodology used by opendata.swiss, which itself was adapted from the data.europa.eu approach. As the source code for the official Swiss implementation has not been publicly released, our implementation is derived from public documentation of their methodology and scoring system. While we aim to mirror the Swiss methodology as closely as possible, this is not an official implementation nor is it endorsed by opendata.swiss or data.europa.eu.
 
-Our implementation has been carefully adapted to work with Berlin's DCAT-AP.de metadata schema while maintaining the same scoring principles used by the Swiss system. This adaptation includes mapping Berlin's specific metadata fields to the FAIR dimensions and ensuring compatibility with Berlin's controlled vocabularies, licenses, and resource formats. By applying this methodology to Berlin's Open Data Portal, we enable data providers to check the quality of their metadata and receive improvement suggestions based on established European standards.
+Our implementation has been adapted to work with Berlin's DCAT-AP.de metadata schema while maintaining the same scoring principles. This adaptation includes mapping Berlin's specific metadata fields to the FAIR dimensions and ensuring compatibility with Berlin's controlled vocabularies, licenses, and resource formats. By applying this methodology to Berlin's Open Data Portal, we enable data providers to check the quality of their metadata and receive improvement suggestions based on established European standards.
 
 ## Features
 
