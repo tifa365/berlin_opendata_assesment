@@ -99,5 +99,13 @@ The total score (max 405 points) determines the final rating:
 - `/data`: Raw metadata files fetched from the API
 - `/results`: Generated assessment results (CSV and JSON)
 - `/src`: Core module code
-  - `metadata_quality_assessment.py`: FAIR scoring implementation
-  - `run_metadata_assessment.py`: Main script with API integration
+  - `metadata_quality_assessment.py`: Core implementation of the FAIR scoring system
+    - Contains the scoring logic, indicators, and dimension calculations
+    - Provides reusable functions for processing datasets
+  - `run_metadata_assessment.py`: User-facing script that:
+    - Handles command-line arguments and user interaction
+    - Fetches metadata directly from the Berlin Open Data API
+    - Processes datasets using the core implementation
+    - Generates and saves results
+
+The project separates the scoring implementation (`metadata_quality_assessment.py`) from the data retrieval and user interface (`run_metadata_assessment.py`), following the single responsibility principle to keep the code modular and maintainable.
