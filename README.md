@@ -6,7 +6,9 @@ This project implements a metadata quality assessment framework for the Berlin O
 
 The Berlin Open Data Portal provides public datasets through a CKAN-based API. This tool evaluates the quality of the metadata provided with each dataset, generating scores across multiple dimensions and providing an overall quality rating.
 
-This project is based on the Metadata Quality Assessment (MQA) methodology used by opendata.swiss, which itself was adapted from the data.europa.eu approach. As the source code for the official Swiss implementation has not been publicly released, our implementation is derived from public documentation of their methodology and scoring system. While we aim to mirror the Swiss methodology as closely as possible, this is not an official implementation nor is it endorsed by opendata.swiss or data.europa.eu.
+This project implements the Metadata Quality Assessment (MQA) methodology developed by opendata.swiss, which is documented at [https://dashboard.opendata.swiss/de/methodik.html](https://dashboard.opendata.swiss/de/methodik.html). The Swiss MQA approach was itself adapted from the data.europa.eu methodology.
+
+As the source code for the official Swiss implementation has not been publicly released, our implementation is derived from public documentation of their methodology and scoring system. While we aim to mirror the Swiss methodology as closely as possible, this is not an official implementation nor is it endorsed by opendata.swiss or data.europa.eu.
 
 Important note: Due to fundamental differences in the implementation of data catalogs between Switzerland and Germany (including different metadata schemas, vocabularies, and field definitions), our results will necessarily differ from the Swiss implementation. The assessment scores should be considered approximations that may vary from the original methodology and should be used primarily as relative indicators of metadata quality rather than absolute measurements.
 
