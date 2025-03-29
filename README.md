@@ -142,3 +142,7 @@ The total score (max 405 points) determines the final rating:
     - Generates and saves results
 
 The project uses two main files: one for the actual scoring system (`metadata_quality_assessment.py`) and another for the command-line interface (`run_metadata_assessment.py`). This makes it easier to understand the code and allows each component to be used independently.
+
+## License
+
+This project is released under the [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/). You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
