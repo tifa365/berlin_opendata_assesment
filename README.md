@@ -25,22 +25,22 @@ pip install -r requirements.txt
 
 ### Running the Assessment
 
-1. Fetch metadata from the Berlin Open Data API and run the assessment:
+1. Run with a smaller sample for testing (recommended first step):
+
+   ```bash
+   python src/run_metadata_assessment.py --fetch --sample 10
+   ```
+
+2. Fetch all metadata from the Berlin Open Data API and run the full assessment:
 
    ```bash
    python src/run_metadata_assessment.py --fetch --verbose
    ```
 
-2. Or use existing metadata file:
+3. Or use existing metadata file:
 
    ```bash
    python src/run_metadata_assessment.py --input data/berlin_metadata.csv
-   ```
-
-3. Run with a smaller sample for testing:
-
-   ```bash
-   python src/run_metadata_assessment.py --fetch --sample 10
    ```
 
 4. View results in the `results` directory:
