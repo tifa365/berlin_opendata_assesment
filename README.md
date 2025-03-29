@@ -141,4 +141,4 @@ The total score (max 405 points) determines the final rating:
     - Processes datasets using the core implementation
     - Generates and saves results
 
-The project separates the scoring implementation (`metadata_quality_assessment.py`) from the data retrieval and user interface (`run_metadata_assessment.py`), following the single responsibility principle to keep the code modular and maintainable.
+The project uses two main files: one for the actual scoring system (`metadata_quality_assessment.py`) and another for the command-line interface (`run_metadata_assessment.py`). This makes it easier to understand the code and allows each component to be used independently.
